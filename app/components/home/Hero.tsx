@@ -42,7 +42,7 @@ const CAROUSEL_SLIDES = [
     subtitle: "Discover the latest drops, bold frames, and seasonal sunglasses.",
     cta: "Shop New Arrivals",
     link: "/category/new-arrivals",
-    image: "/home4.jpeg",
+    image: "/home4.jpg",
     badge: "Limited Drop",
     accentText: "text-violet-400"
   }
