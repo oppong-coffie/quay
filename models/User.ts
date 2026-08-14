@@ -1,0 +1,51 @@
+import mongoose, { Schema, Document, model, models } from 'mongoose';
+
+export interface IUser extends Document {
+  name: string;
+  email: string;
+  phone?: string;
+  address?: string;
+  passwordHash: string;
+  createdAt: Date;
+  role: string;
+}
+
+const UserSchema = new Schema<IUser>({
+  name: { 
+    type: String, 
+    required: [true, 'Name is required'],
+    trim: true,
+  },
+  email: { 
+    type: String, 
+    required: [true, 'Email is required'],
+    unique: true, 
+    lowercase: true, 
+    trim: true,
+  },
+  phone: {
+    type: String,
+    trim: true,
+  },
+  address: {
+    type: String,
+    required: [true, 'Address is required'],
+    trim: true,
+  },
+  passwordHash: { 
+    type: String, 
+    required: [true, 'Password hash is required'],
+  },
+  role: {
+    type: String,
+    enum: ['user', 'admin'],
+    default: 'user',
+  },
+  createdAt: { 
+    type: Date, 
+    default: Date.now,
+  },
+});
+
+// Next.js hot reloading can compile the model multiple times; this pattern prevents model overwrite errors.
+export const User = models.User || model<IUser>('User', UserSchema);

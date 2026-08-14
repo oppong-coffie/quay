@@ -1,0 +1,206 @@
+import Link from 'next/link';
+import { redirect } from 'next/navigation';
+import { getSession, deleteSession } from './lib/session';
+import { User } from '@/models/User';
+import { Product } from '@/models/Product';
+import dbConnect from './lib/mongodb';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import HomeContent from './components/home/HomeContent';
+
+
+export const dynamic = 'force-dynamic';
+
+// Server Action to log the user out directly on the server
+async function logoutAction() {
+  'use server';
+  await deleteSession();
+  redirect('/');
+}
+
+export default async function Home() {
+  let activeUser = null;
+  let featuredProducts: any[] = [];
+  let flashProducts: any[] = [];
+  let topSellingProducts: any[] = [];
+  let sponsoredProducts: any[] = [];
+  let allProducts: any[] = [];
+  let promoProducts: any[] = [];
+
+  try {
+    await dbConnect();
+    const session = await getSession();
+    if (session && session.userId) {
+      const dbUser = await User.findById(session.userId).lean();
+      if (dbUser) {
+        activeUser = {
+          id: dbUser._id.toString(),
+          name: dbUser.name,
+          email: dbUser.email,
+          role: (dbUser as any).role || 'user',
+          createdAt: dbUser.createdAt,
+        };
+      }
+    }
+
+    // Query featured products (In Stock or Few Left only)
+    const activeStatus = { $in: ['In Stock', 'Few Left'] };
+
+    const featuredList = await Product.find({ featured: true, status: activeStatus }).sort({ createdAt: -1 }).limit(4);
+    featuredProducts = featuredList.map(p => ({
+      id: p._id.toString(),
+      name: p.name,
+      price: p.price,
+      rating: p.rating,
+      type: p.type,
+      category: p.category,
+      status: p.status,
+      promo: p.promo,
+      flashSale: p.flashSale,
+      oldPrice: p.oldPrice,
+      newPrice: p.newPrice,
+      topSelling: p.topSelling,
+      featured: p.featured,
+      sponsored: p.sponsored,
+      image: p.image,
+      subImages: p.subImages || [],
+      colors: p.colors || [],
+      sizes: p.sizes || [],
+    }));
+
+    const flashList = await Product.find({ flashSale: true, status: activeStatus }).sort({ createdAt: -1 }).limit(4);
+    flashProducts = flashList.map(p => ({
+      id: p._id.toString(),
+      name: p.name,
+      price: p.price,
+      rating: p.rating,
+      type: p.type,
+      category: p.category,
+      status: p.status,
+      promo: p.promo,
+      flashSale: p.flashSale,
+      oldPrice: p.oldPrice,
+      newPrice: p.newPrice,
+      topSelling: p.topSelling,
+      featured: p.featured,
+      sponsored: p.sponsored,
+      image: p.image,
+      subImages: p.subImages || [],
+      colors: p.colors || [],
+      sizes: p.sizes || [],
+    }));
+
+    // Query top selling products
+    const topSellingList = await Product.find({ topSelling: true, status: activeStatus }).sort({ createdAt: -1 }).limit(3);
+    topSellingProducts = topSellingList.map(p => ({
+      id: p._id.toString(),
+      name: p.name,
+      price: p.price,
+      rating: p.rating,
+      type: p.type,
+      category: p.category,
+      status: p.status,
+      promo: p.promo,
+      flashSale: p.flashSale,
+      oldPrice: p.oldPrice,
+      newPrice: p.newPrice,
+      topSelling: p.topSelling,
+      featured: p.featured,
+      sponsored: p.sponsored,
+      image: p.image,
+      subImages: p.subImages || [],
+      colors: p.colors || [],
+      sizes: p.sizes || [],
+    }));
+
+    // Query sponsored products
+    const sponsoredList = await Product.find({ sponsored: true, status: activeStatus }).sort({ createdAt: -1 }).limit(2);
+    sponsoredProducts = sponsoredList.map(p => ({
+      id: p._id.toString(),
+      name: p.name,
+      price: p.price,
+      rating: p.rating,
+      type: p.type,
+      category: p.category,
+      status: p.status,
+      promo: p.promo,
+      flashSale: p.flashSale,
+      oldPrice: p.oldPrice,
+      newPrice: p.newPrice,
+      topSelling: p.topSelling,
+      featured: p.featured,
+      sponsored: p.sponsored,
+      image: p.image,
+      subImages: p.subImages || [],
+      colors: p.colors || [],
+      sizes: p.sizes || [],
+    }));
+
+    // Query promo products
+    const promoList = await Product.find({ promo: true, status: activeStatus }).sort({ createdAt: -1 });
+    promoProducts = promoList.map(p => ({
+      id: p._id.toString(),
+      name: p.name,
+      price: p.price,
+      rating: p.rating,
+      type: p.type,
+      category: p.category,
+      status: p.status,
+      promo: p.promo,
+      flashSale: p.flashSale,
+      oldPrice: p.oldPrice,
+      newPrice: p.newPrice,
+      topSelling: p.topSelling,
+      featured: p.featured,
+      sponsored: p.sponsored,
+      image: p.image,
+      subImages: p.subImages || [],
+      colors: p.colors || [],
+      sizes: p.sizes || [],
+    }));
+
+    // Query all In Stock / Few Left products
+    const allList = await Product.find({ status: activeStatus }).sort({ createdAt: -1 });
+    allProducts = allList.map(p => ({
+      id: p._id.toString(),
+      name: p.name,
+      price: p.price,
+      rating: p.rating,
+      type: p.type,
+      category: p.category,
+      status: p.status,
+      promo: p.promo,
+      flashSale: p.flashSale,
+      oldPrice: p.oldPrice,
+      newPrice: p.newPrice,
+      topSelling: p.topSelling,
+      featured: p.featured,
+      sponsored: p.sponsored,
+      image: p.image,
+      subImages: p.subImages || [],
+      colors: p.colors || [],
+      sizes: p.sizes || [],
+    }));
+  } catch (error) {
+    console.error('Error fetching data on home page:', error);
+  }
+
+  return (
+    <div className="min-h-screen flex flex-col bg-slate-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-55 transition-colors duration-200">
+      {/* Navbar */}
+      <Navbar activeUser={activeUser} logoutAction={logoutAction} />
+
+      {/* Main Content Area */}
+      <HomeContent 
+        featuredProducts={featuredProducts} 
+        flashProducts={flashProducts} 
+        topSellingProducts={topSellingProducts}
+        sponsoredProducts={sponsoredProducts}
+        promoProducts={promoProducts}
+        allProducts={allProducts}
+      />
+      <Footer />
+    </div>
+  );
+}
+
