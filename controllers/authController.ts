@@ -150,10 +150,10 @@ export async function login(request: Request) {
       },
       { status: 200 }
     );
-  } catch (error) {
+  } catch (error: any) {
     console.error('Login controller error:', error);
     return NextResponse.json(
-      { success: false, message: 'An unexpected error occurred.' },
+      { success: false, message: error?.message || 'An unexpected error occurred.' },
       { status: 500 }
     );
   }
@@ -166,10 +166,10 @@ export async function logout() {
       { success: true, message: 'Logged out successfully.' },
       { status: 200 }
     );
-  } catch (error) {
+  } catch (error: any) {
     console.error('Logout controller error:', error);
     return NextResponse.json(
-      { success: false, message: 'An unexpected error occurred during logout.' },
+      { success: false, message: error?.message || 'An unexpected error occurred during logout.' },
       { status: 500 }
     );
   }
@@ -207,10 +207,10 @@ export async function getMe() {
       },
       { status: 200 }
     );
-  } catch (error) {
+  } catch (error: any) {
     console.error('Fetch session controller error:', error);
     return NextResponse.json(
-      { success: false, message: 'An unexpected error occurred.' },
+      { success: false, message: error?.message || 'An unexpected error occurred.' },
       { status: 500 }
     );
   }
