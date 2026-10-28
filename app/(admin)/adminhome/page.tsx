@@ -160,7 +160,7 @@ export default function AdminDashboardHome() {
         <div>
           <span className="text-[10px] font-extrabold text-violet-600 dark:text-violet-400 uppercase tracking-widest bg-violet-50 dark:bg-violet-950/30 border border-violet-100 dark:border-violet-900/60 px-3 py-1 rounded-full flex items-center gap-1.5 w-fit">
             <Sparkles size={11} className="fill-current animate-pulse" />
-            <span>Quay Management Console</span>
+            <span>Vastistore Management Console</span>
           </span>
           <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-zinc-50 tracking-tight mt-2.5">
             Admin Dashboard

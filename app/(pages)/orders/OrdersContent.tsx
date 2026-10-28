@@ -398,7 +398,7 @@ export default function OrdersContent({ items = [] }: OrdersContentProps) {
                 </p>
                 <p className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
-                  <span>Dispatched and handled by Quay Logistics.</span>
+                  <span>Dispatched and handled by Vastistore Logistics.</span>
                 </p>
               </div>
             </motion.div>

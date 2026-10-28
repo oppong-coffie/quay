@@ -517,7 +517,7 @@ export default function CategoryList({ products }: CategoryListProps) {
                     </button>
                   ) : (
                     <a
-                      href={`https://wa.me/233201321543?text=${encodeURIComponent(`Hello, I'm interested in buying the ${selectedProduct.name} from Quay.`)}`}
+                      href={`https://wa.me/233201321543?text=${encodeURIComponent(`Hello, I'm interested in buying the ${selectedProduct.name} from Vastistore.`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full bg-emerald-600 hover:bg-emerald-750 active:bg-emerald-800 text-white font-semibold text-xs py-3.5 rounded-2xl transition duration-150 flex items-center justify-center gap-2 shadow-sm cursor-pointer no-underline text-center"

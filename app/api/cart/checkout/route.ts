@@ -51,7 +51,7 @@ export async function POST(request: Request) {
     // Send order confirmation SMS to customer if phone exists
     if (user && user.phone) {
       try {
-        const smsMessage = `Hi ${user.name}, your Quay order of ${cartItems.length} item(s) (${itemNames}) has been successfully placed! We are preparing it for delivery. Thank you!`;
+        const smsMessage = `Hi ${user.name}, your Vastistore order of ${cartItems.length} item(s) (${itemNames}) has been successfully placed! We are preparing it for delivery. Thank you!`;
         await sendSMS(user.phone, smsMessage);
       } catch (smsErr) {
         console.error('Checkout SMS dispatch to customer failed:', smsErr);

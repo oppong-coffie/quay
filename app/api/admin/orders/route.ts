@@ -111,11 +111,11 @@ export async function PATCH(request: Request) {
         const prodName = cartItem.productId?.name || 'Staple Item';
         let smsText = '';
         if (status === 'accepted') {
-          smsText = `Hi ${customer.name}, your Quay order for "${prodName}" has been accepted and is now in transit/processing!`;
+          smsText = `Hi ${customer.name}, your Vastistore order for "${prodName}" has been accepted and is now in transit/processing!`;
         } else if (status === 'completed') {
-          smsText = `Hi ${customer.name}, your Quay order for "${prodName}" has been completed/delivered! Thank you for shopping with us!`;
+          smsText = `Hi ${customer.name}, your Vastistore order for "${prodName}" has been completed/delivered! Thank you for shopping with us!`;
         } else if (status === 'cancelled') {
-          smsText = `Hi ${customer.name}, your Quay order for "${prodName}" has been rejected/cancelled.`;
+          smsText = `Hi ${customer.name}, your Vastistore order for "${prodName}" has been rejected/cancelled.`;
         }
 
         if (smsText) {

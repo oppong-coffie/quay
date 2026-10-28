@@ -32,24 +32,6 @@ const STATIC_PROMOS = [
     accentText: "text-violet-400"
   },
   {
-    title: "New Arrivals",
-    subtitle: "Fresh seasonal drops and latest designer frame arrivals.",
-    badge: "New Release",
-    image: "/promo4.webp",
-    link: "/category/new-arrivals",
-    cta: "Shop New",
-    accentText: "text-amber-400"
-  },
-  {
-    title: "Bestsellers",
-    subtitle: "Our top-rated and most popular sunglasses of the season.",
-    badge: "Top Rated",
-    image: "/promo5.webp",
-    link: "/category/bestsellers",
-    cta: "Shop Favorites",
-    accentText: "text-emerald-400"
-  },
-  {
     title: "Polarized Lenses",
     subtitle: "Anti-glare, high-definition clarity polarized optics.",
     badge: "Optics Grade",
@@ -73,7 +55,7 @@ export default function Promo() {
   const displayPromos = STATIC_PROMOS;
 
   return (
-    <section className="w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-1 mt-10 md:mt-14">
+    <section className="w-full px-6 md:px-12 lg:px-1 mt-10 md:mt-14">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -89,10 +71,7 @@ export default function Promo() {
             Carefully curated collections with limited-time offers.
           </p>
         </div>
-        <div className="hidden md:flex items-center gap-1.5 text-xs font-semibold text-zinc-500">
-          <span>Swipe or Scroll</span>
-          <ArrowRight size={14} className="text-zinc-400" />
-        </div>
+     
       </motion.div>
 
       <motion.div 
@@ -100,7 +79,7 @@ export default function Promo() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-        className="w-full overflow-x-auto pb-6 pt-2 no-scrollbar scroll-smooth snap-x snap-mandatory flex gap-6"
+        className="w-full overflow-x-auto pb-6 pt-2 no-scrollbar scroll-smooth snap-x snap-mandatory flex gap-0"
       >
         {displayPromos.map((promo, idx) => (
           <motion.div
@@ -115,7 +94,7 @@ export default function Promo() {
           >
             <Link 
               href={promo.link}
-              className="w-[320px] md:w-[250px] h-[220px] md:h-[230px] group relative rounded-3xl overflow-hidden shadow-sm block cursor-pointer"
+              className="w-[320px] md:w-[390px] h-[350px] md:h-[500px] group relative overflow-hidden shadow-sm block cursor-pointer"
             >
               {/* Background Image with Auto-Floating/Bouncing Effect */}
               <motion.img 

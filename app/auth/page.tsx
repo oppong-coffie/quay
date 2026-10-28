@@ -152,7 +152,7 @@ export default function AuthPlayground() {
             {!user ? (
               <>
                 <div>
-                  <h1 className="text-2xl font-extrabold text-zinc-900 dark:text-zinc-50 tracking-tight mb-1">yellowyShop Gateway</h1>
+                  <h1 className="text-2xl font-extrabold text-zinc-900 dark:text-zinc-50 tracking-tight mb-1">Vastistore Gateway</h1>
                   <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-6">Verify the secure stateless cookie authentication backend</p>
                 </div>
 

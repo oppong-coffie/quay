@@ -4,15 +4,14 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Hero from './Hero';
 import Promo from './promo';
-import Featured from './Featured';
-import FlashSales from './Flash';
+import Kids from './Kids';
+import Flash from './Flash';
 import TopSelling from './topsale';
-import Sponsored from './Sponsored';
-import AllProducts from './AllProducts';
 import SplashScreen from './SplashScreen';
 
 interface HomeContentProps {
   featuredProducts?: any[];
+  kids?: any[];
   flashProducts?: any[];
   topSellingProducts?: any[];
   sponsoredProducts?: any[];
@@ -21,24 +20,21 @@ interface HomeContentProps {
 }
 
 export default function HomeContent({
-  featuredProducts = [],
+  kids = [],
   flashProducts = [],
   topSellingProducts = [],
-  sponsoredProducts = [],
-  promoProducts = [],
-  allProducts = []
 }: HomeContentProps) {
   const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
-    const hasShown = sessionStorage.getItem('yellowyshop_splash_shown');
+    const hasShown = sessionStorage.getItem('vastistore_splash_shown');
     if (hasShown) {
       setShowSplash(false);
     }
   }, []);
 
   const handleSplashComplete = () => {
-    sessionStorage.setItem('yellowyshop_splash_shown', 'true');
+    sessionStorage.setItem('vastistore_splash_shown', 'true');
     setShowSplash(false);
   };
 
@@ -64,11 +60,12 @@ export default function HomeContent({
       <div className="flex-1 w-full bg-slate-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 transition-colors duration-200">
         <Hero />
         <Promo />
-        <FlashSales products={flashProducts} />
+        <Flash products={flashProducts} />
+        <Kids products={kids} />
         <TopSelling products={topSellingProducts} />
-        <Featured products={featuredProducts} />
-        <Sponsored products={sponsoredProducts} />
-        <AllProducts products={allProducts} />
+        {/* <Featured products={featuredProducts} /> */}
+        {/* <Sponsored products={sponsoredProducts} /> */}
+        {/* <AllProducts products={allProducts} /> */}
       </div>
     </>
   );

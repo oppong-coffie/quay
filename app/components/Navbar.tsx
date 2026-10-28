@@ -149,8 +149,8 @@ export default function Navbar({ activeUser, logoutAction }: NavbarProps) {
         </div>
 
         <Link href="/" className="flex items-center gap-2 sm:gap-3 font-extrabold text-base sm:text-xl text-zinc-900 dark:text-zinc-50 no-underline tracking-tight min-w-0">
-          <img src="/logo.png" alt="Quay Logo" width={32} height={32} className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg object-contain bg-white border border-zinc-200 dark:border-zinc-700 p-0.5 flex-shrink-0" />
-          <span className="truncate">Quay</span>
+          <img src="/logo.png" alt="Vastistore Logo" width={32} height={32} className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg object-contain bg-white border border-zinc-200 dark:border-zinc-700 p-0.5 flex-shrink-0" />
+          <span className="truncate">Vastistore</span>
         </Link>
       </div>
 

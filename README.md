@@ -1,6 +1,6 @@
-# QuayGh - Premium Clothing Storefront & Admin Hub
+# Vastistore - Premium Clothing Storefront & Admin Hub
 
-QuayGh is a premium, highly responsive e-commerce web application for luxury clothing and apparel. Built using Next.js 16 (App Router) and Tailwind CSS 4, the platform integrates real-time shopping cart events, visual order tracking, customized animated registration, SMS notifications, and an admin inventory management board.
+Vastistore is a premium, highly responsive e-commerce web application for luxury clothing and apparel. Built using Next.js 16 (App Router) and Tailwind CSS 4, the platform integrates real-time shopping cart events, visual order tracking, customized animated registration, SMS notifications, and an admin inventory management board.
 
 ---
 

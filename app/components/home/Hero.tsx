@@ -2,50 +2,42 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import {
-  ChevronLeft,
-  ChevronRight,
-  Sparkles,
-  ArrowRight
-} from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const CAROUSEL_SLIDES = [
   {
-    title: "Polarized Precision Optics",
-    subtitle: "High-clarity, glare-reducing sunglasses built for bright days.",
-    cta: "Shop Polarized",
-    link: "/category/polarized",
-    image: "/home1.webp",
-    badge: "New Release",
-    accentText: "text-amber-400"
+    topTag: "MENS",
+    title: "NEW ARRIVALS",
+    subtitle: "The freshest styles your closet needs from our men's new collection",
+    cta: "SHOP NOW",
+    link: "/category/new-arrivals",
+    image: "/hero1.jpg",
   },
   {
-    title: "Women's Sunglasses",
-    subtitle: "Trending frames, chic cat-eye styles, and timeless silhouettes.",
-    cta: "Shop Women's",
+    topTag: "WOMENS",
+    title: "CHIC ESSENTIALS",
+    subtitle: "Timeless silhouettes and statement frames designed to elevate your everyday look",
+    cta: "SHOP NOW",
     link: "/category/womens-sunglasses",
+    image: "/hero2.jpg",
+  },
+  {
+    topTag: "POLARIZED",
+    title: "PRECISION OPTICS",
+    subtitle: "High-definition clarity, vivid contrast, and glare-free comfort under the sun",
+    cta: "SHOP NOW",
+    link: "/category/polarized",
+    image: "/hero3.jpg",
+  },
+  {
+    topTag: "BESTSELLERS",
+    title: "ICONIC FRAMES",
+    subtitle: "Our most coveted luxury shapes and modern bestsellers back in stock",
+    cta: "SHOP NOW",
+    link: "/category/bestsellers",
     image: "/home2.webp",
-    badge: "Bestsellers",
-    accentText: "text-emerald-400"
   },
-  {
-    title: "New Arrivals Collection",
-    subtitle: "Discover the latest drops, bold frames, and seasonal sunglasses.",
-    cta: "Shop New Arrivals",
-    link: "/category/new-arrivals",
-    image: "/home5.webp",
-    badge: "Limited Drop",
-    accentText: "text-violet-400"
-  },
-  {
-    title: "New Arrivals Collection",
-    subtitle: "Discover the latest drops, bold frames, and seasonal sunglasses.",
-    cta: "Shop New Arrivals",
-    link: "/category/new-arrivals",
-    image: "/home4.jpg",
-    badge: "Limited Drop",
-    accentText: "text-violet-400"
-  }
 ];
 
 export default function Hero() {
@@ -55,7 +47,7 @@ export default function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % CAROUSEL_SLIDES.length);
-    }, 6000);
+    }, 7000);
     return () => clearInterval(timer);
   }, []);
 
@@ -67,99 +59,116 @@ export default function Hero() {
     setCurrentSlide((prev) => (prev + 1) % CAROUSEL_SLIDES.length);
   };
 
+  const activeSlide = CAROUSEL_SLIDES[currentSlide];
+
   return (
-    <section className="relative w-full overflow-hidden px-6 pt-6 md:px-12 lg:px-16 md:pt-10">
-      <div className="max-w-[1600px] mx-auto relative group">
-        {/* Slides Container */}
-        <div className="relative h-[380px] md:h-[460px] w-full rounded-3xl overflow-hidden shadow-sm">
-          {CAROUSEL_SLIDES.map((slide, idx) => {
-            const isActive = idx === currentSlide;
-            return (
-              <div
-                key={idx}
-                className={`absolute inset-0 flex flex-col justify-center p-8 md:p-16 transition-all duration-500 ease-in-out ${isActive ? "opacity-100 scale-100 z-10" : "opacity-0 scale-95 z-0"
-                  }`}
-              >
-                {/* Background Image with Zoom Micro-Animation */}
-                <div className="absolute inset-0 overflow-hidden">
-                  <img
-                    src={slide.image}
-                    alt={slide.title}
-                    className={`w-full h-full object-cover transition-transform duration-[10000ms] ease-out ${isActive ? "scale-155" : "scale-100"
-                      }`}
-                  />
-                  {/* Premium Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-transparent" />
-                </div>
+    <section className="relative w-full h-[calc(100vh-64px)] min-h-[580px] max-h-[1050px] overflow-hidden select-none bg-zinc-950">
+      {/* Background Images with smooth crossfade */}
+      {CAROUSEL_SLIDES.map((slide, idx) => {
+        const isActive = idx === currentSlide;
+        return (
+          <div
+            key={idx}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              isActive ? "opacity-100 z-0" : "opacity-0 pointer-events-none"
+            }`}
+          >
+            <img
+              src={slide.image}
+              alt={slide.title}
+              className={`w-full h-full object-cover object-center transition-transform duration-[10000ms] ease-out ${
+                isActive ? "scale-105" : "scale-100"
+              }`}
+            />
+            {/* Cinematic Gradient Overlays for optimal text legibility */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/35" />
+          </div>
+        );
+      })}
 
-                <div className="relative max-w-xl space-y-4 z-10">
-                  <span className={`inline-flex items-center gap-1 bg-white/10 dark:bg-black/35 border border-white/20 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-md shadow-sm transition-all duration-700 ease-out transform ${isActive ? "translate-y-0 opacity-100 delay-100" : "translate-y-4 opacity-0"
-                    }`}>
-                    <Sparkles size={12} className={slide.accentText} />
-                    {slide.badge}
-                  </span>
-                  <h2 className={`text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-white transition-all duration-700 ease-out transform ${isActive ? "translate-y-0 opacity-100 delay-200" : "translate-y-4 opacity-0"
-                    }`}>
-                    {slide.title}
-                  </h2>
-                  <p className={`text-sm md:text-base text-zinc-200 leading-relaxed max-w-lg transition-all duration-700 ease-out transform ${isActive ? "translate-y-0 opacity-100 delay-300" : "translate-y-4 opacity-0"
-                    }`}>
-                    {slide.subtitle}
-                  </p>
-                  <div className={`pt-2 transition-all duration-700 ease-out transform ${isActive ? "translate-y-0 opacity-100 delay-500" : "translate-y-4 opacity-0"
-                    }`}>
-                    <Link
-                      href={slide.link}
-                      className="inline-flex items-center gap-2 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold rounded-2xl px-6 py-3.5 transition duration-150 text-sm shadow-sm cursor-pointer"
-                    >
-                      <span>{slide.cta}</span>
-                      <ArrowRight size={14} />
-                    </Link>
-                  </div>
-                </div>
-
-                {/* Progress Bar Indicator */}
-                {isActive && (
-                  <div className="absolute bottom-0 left-0 h-1.5 bg-white/30 z-20 animate-progress-bar" />
-                )}
-              </div>
-            );
-          })}
+      {/* Hero Content Overlay: Top Label, Center Title/Subtitle/Button, Bottom Dots */}
+      <div className="relative z-10 w-full h-full flex flex-col justify-between items-center py-8 sm:py-12 md:py-14 px-4 text-center pointer-events-none">
+        
+        {/* Top Collection/Category Tag */}
+        <div className="min-h-[28px] flex items-center justify-center">
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={`tag-${currentSlide}`}
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 8 }}
+              transition={{ duration: 0.4 }}
+              className="text-xs sm:text-sm font-light tracking-[0.35em] uppercase text-white/90 drop-shadow-md"
+            >
+              {activeSlide.topTag}
+            </motion.p>
+          </AnimatePresence>
         </div>
 
-        {/* Left Arrow */}
-        <button
-          onClick={handlePrevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-white/10 dark:bg-black/25 border border-white/10 text-white hover:bg-white/20 rounded-full shadow-md z-20 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 cursor-pointer"
-          aria-label="Previous Slide"
-        >
-          <ChevronLeft size={20} />
-        </button>
+        {/* Center Title, Subtitle, and Call to Action */}
+        <div className="flex flex-col items-center justify-center max-w-4xl mx-auto space-y-3 sm:space-y-4 my-auto px-4">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`content-${currentSlide}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="flex flex-col items-center space-y-3 sm:space-y-4"
+            >
+              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight uppercase text-white drop-shadow-xl leading-none">
+                {activeSlide.title}
+              </h1>
 
-        {/* Right Arrow */}
-        <button
-          onClick={handleNextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-white/10 dark:bg-black/25 border border-white/10 text-white hover:bg-white/20 rounded-full shadow-md z-20 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 cursor-pointer"
-          aria-label="Next Slide"
-        >
-          <ChevronRight size={20} />
-        </button>
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/95 font-normal tracking-wide max-w-2xl drop-shadow-md leading-relaxed">
+                {activeSlide.subtitle}
+              </p>
 
-        {/* Dot Indicators */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+              <div className="pt-3 sm:pt-5 pointer-events-auto">
+                <Link
+                  href={activeSlide.link}
+                  className="inline-block bg-white hover:bg-zinc-100 active:bg-zinc-200 text-zinc-950 font-bold text-xs sm:text-sm tracking-[0.2em] uppercase px-8 sm:px-10 py-3.5 sm:py-4 transition-all duration-200 shadow-2xl hover:scale-105 active:scale-95 cursor-pointer"
+                >
+                  {activeSlide.cta}
+                </Link>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Bottom Carousel Dot / Bar Indicators */}
+        <div className="flex items-center gap-2 pointer-events-auto pb-2">
           {CAROUSEL_SLIDES.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setCurrentSlide(idx)}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${idx === currentSlide
-                  ? "bg-white w-6"
-                  : "bg-white/40 hover:bg-white/60"
-                }`}
+              className={`h-1 rounded-full transition-all duration-300 cursor-pointer ${
+                idx === currentSlide
+                  ? "bg-white w-8 shadow-sm"
+                  : "bg-white/40 hover:bg-white/70 w-3"
+              }`}
               aria-label={`Go to slide ${idx + 1}`}
             />
           ))}
         </div>
       </div>
+
+      {/* Subtle Left and Right Arrows on Edges */}
+      <button
+        onClick={handlePrevSlide}
+        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 text-white/75 hover:text-white transition-all duration-200 z-20 cursor-pointer hover:scale-110 drop-shadow-lg"
+        aria-label="Previous Slide"
+      >
+        <ChevronLeft className="w-7 h-7 sm:w-9 sm:h-9 stroke-[1.5]" />
+      </button>
+
+      <button
+        onClick={handleNextSlide}
+        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 text-white/75 hover:text-white transition-all duration-200 z-20 cursor-pointer hover:scale-110 drop-shadow-lg"
+        aria-label="Next Slide"
+      >
+        <ChevronRight className="w-7 h-7 sm:w-9 sm:h-9 stroke-[1.5]" />
+      </button>
     </section>
   );
 }

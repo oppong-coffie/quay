@@ -119,7 +119,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
               >
                 <img
                   src="/logo.png"
-                  alt="yellowyShop Logo"
+                  alt="Vastistore Logo"
                   className="w-full h-full object-contain animate-bounce rounded-full"
                 />
               </motion.div>
@@ -137,7 +137,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
                   }}
                   className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-purple-400 to-indigo-400 tracking-widest font-sans uppercase"
                 >
-                  Quay
+                  Vastistore
                 </motion.h1>
               )}
             </div>

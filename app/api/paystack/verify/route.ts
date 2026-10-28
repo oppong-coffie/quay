@@ -80,7 +80,7 @@ export async function GET(request: Request) {
       // Send customer confirmation SMS if phone exists
       if (user && user.phone) {
         try {
-          const smsMessage = `Hi ${user.name}, your Quay order of ${cartItems.length} item(s) (${itemNames}) has been successfully placed! We are preparing it for delivery. Thank you!`;
+          const smsMessage = `Hi ${user.name}, your Vastistore order of ${cartItems.length} item(s) (${itemNames}) has been successfully placed! We are preparing it for delivery. Thank you!`;
           await sendSMS(user.phone, smsMessage);
         } catch (smsErr) {
           console.error('Checkout SMS dispatch to customer failed:', smsErr);
@@ -89,7 +89,7 @@ export async function GET(request: Request) {
 
       // Also send payment notification SMS to 024414197
       try {
-        const adminSmsMessage = `[ORDER ALERT] ${customerName} paid GHS ${totalAmount} for ${cartItems.length} item(s) (${itemNames}) via Quay website.`;
+        const adminSmsMessage = `[ORDER ALERT] ${customerName} paid GHS ${totalAmount} for ${cartItems.length} item(s) (${itemNames}) via Vastistore website.`;
         await sendSMS('0246414197', adminSmsMessage);
       } catch (adminSmsErr) {
         console.error('Payment SMS dispatch to 0246414197 failed:', adminSmsErr);

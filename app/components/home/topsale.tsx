@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { Star } from 'lucide-react';
 
 
@@ -79,7 +78,7 @@ export default function TopSelling({ products = [] }: TopSellingProps) {
 
   return (
     <section className="w-full px-6 md:px-12 lg:px-16 py-12 md:py-16 bg-white dark:bg-zinc-950 transition-colors duration-200">
-      <div className="max-w-[1600px] mx-auto">
+      <div className="">
         <div className="mb-10 border-b border-zinc-200/60 dark:border-zinc-800/60 pb-5">
           <h2 className="text-2xl md:text-3xl font-extrabold text-zinc-900 dark:text-zinc-50 tracking-tight">Top Selling</h2>
           <p className="text-xs text-zinc-555 dark:text-zinc-400 mt-0.5">Explore this season's absolute favorites across all archives.</p>

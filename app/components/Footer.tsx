@@ -31,8 +31,8 @@ export default function Footer() {
         {/* Brand */}
         <div className="space-y-4">
           <div className="flex items-center gap-3 font-extrabold text-lg text-zinc-900 dark:text-zinc-50 tracking-tight">
-            <img src="/logo.png" alt="yellowyShop Logo" width={24} height={24} className="w-6 h-6 rounded-md object-contain bg-white border border-zinc-200 dark:border-zinc-700 p-0.5" />
-            <span>Quay</span>
+            <img src="/logo.png" alt="Vastistore Logo" width={24} height={24} className="w-6 h-6 rounded-md object-contain bg-white border border-zinc-200 dark:border-zinc-700 p-0.5" />
+            <span>Vastistore</span>
           </div>
           <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
             Experience next-generation online fashion. Hand-curated collections backed by secure, stateless session engineering.
@@ -43,10 +43,10 @@ export default function Footer() {
               <a href="https://www.instagram.com/aura_fitsgh?igsh=MTZsNGRtcjIydnoxcA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="p-2 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 text-zinc-500 dark:text-zinc-400 hover:text-yellow-500 dark:hover:text-yellow-400 rounded-xl transition-all duration-200 border border-zinc-200/50 dark:border-zinc-800/50" aria-label="Instagram">
                 <InstagramIcon size={15} />
               </a>
-              {/* <a href="https://facebook.com/Quay" target="_blank" rel="noopener noreferrer" className="p-2 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 text-zinc-500 dark:text-zinc-400 hover:text-blue-500 dark:hover:text-blue-400 rounded-xl transition-all duration-200 border border-zinc-200/50 dark:border-zinc-800/50" aria-label="Facebook">
+              {/* <a href="https://facebook.com/Vastistore" target="_blank" rel="noopener noreferrer" className="p-2 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 text-zinc-500 dark:text-zinc-400 hover:text-blue-500 dark:hover:text-blue-400 rounded-xl transition-all duration-200 border border-zinc-200/50 dark:border-zinc-800/50" aria-label="Facebook">
                 <FacebookIcon size={15} />
               </a>
-              <a href="https://twitter.com/Quay" target="_blank" rel="noopener noreferrer" className="p-2 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 text-zinc-500 dark:text-zinc-400 hover:text-sky-500 dark:hover:text-sky-400 rounded-xl transition-all duration-200 border border-zinc-200/50 dark:border-zinc-800/50" aria-label="Twitter">
+              <a href="https://twitter.com/Vastistore" target="_blank" rel="noopener noreferrer" className="p-2 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 text-zinc-500 dark:text-zinc-400 hover:text-sky-500 dark:hover:text-sky-400 rounded-xl transition-all duration-200 border border-zinc-200/50 dark:border-zinc-800/50" aria-label="Twitter">
                 <TwitterIcon size={15} />
               </a> */}
             </div>
@@ -85,7 +85,7 @@ export default function Footer() {
             <li className="text-zinc-450 dark:text-zinc-500 font-semibold mb-1">For support;</li>
             <li className="flex items-center gap-2">
               <Mail size={13} className="text-zinc-400 dark:text-zinc-500 shrink-0" />
-              <span>Email: <a href="mailto:Quay@gmail.com" className="hover:text-violet-600 dark:hover:text-violet-400 transition-colors">Quay@gmail.com</a></span>
+              <span>Email: <a href="mailto:vastistore@gmail.com" className="hover:text-violet-600 dark:hover:text-violet-400 transition-colors">vastistore@gmail.com</a></span>
             </li>
             <li className="flex items-center gap-2">
               <Phone size={13} className="text-zinc-400 dark:text-zinc-500 shrink-0" />
@@ -107,7 +107,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950/40 py-6 transition-colors duration-200">
         <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-zinc-500 dark:text-zinc-400">
-          <span>&copy; {new Date().getFullYear()} Quay Inc. All rights reserved.</span>
+          <span>&copy; {new Date().getFullYear()} Vastistore Inc. All rights reserved.</span>
           <div className="flex flex-wrap gap-x-3 gap-y-1 justify-center items-center text-[10px]">
             <Link href="/policies#terms" className="hover:text-violet-600 dark:hover:text-violet-400 transition-colors">Terms</Link>
             <span className="text-zinc-350 dark:text-zinc-800">&bull;</span>
@@ -117,7 +117,7 @@ export default function Footer() {
             <span className="text-zinc-350 dark:text-zinc-800">&bull;</span>
             <Link href="/policies#privacy" className="hover:text-violet-600 dark:hover:text-violet-400 transition-colors">Privacy</Link>
             <span className="text-zinc-350 dark:text-zinc-800">|</span>
-            <span>Powered by Quay Technologies</span>
+            <span>Powered by Vastistore Technologies</span>
           </div>
         </div>
       </div>

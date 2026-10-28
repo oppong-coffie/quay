@@ -21,7 +21,7 @@ export default function PoliciesContent() {
   }, []);
 
   const tabs = [
-    { id: 'terms', name: 'Terms of Service', icon: Scale, desc: 'Rules & guidelines for using Quay' },
+    { id: 'terms', name: 'Terms of Service', icon: Scale, desc: 'Rules & guidelines for using Vastistore' },
     { id: 'refunds', name: 'Refund Policy', icon: RefreshCw, desc: 'Returns, replacements, and money-back conditions' },
     { id: 'delivery', name: 'Delivery Time Frame', icon: Truck, desc: 'Shipping coverage, speed, and self-pickup info' },
     { id: 'privacy', name: 'Privacy Policy', icon: Shield, desc: 'How we protect and manage your personal data' },
@@ -40,7 +40,7 @@ export default function PoliciesContent() {
             Policies & Terms of Service
           </h1>
           <p className="text-xs md:text-sm text-zinc-500 dark:text-zinc-400 max-w-xl mt-2 leading-relaxed">
-            Everything you need to know about shopping, delivery timelines, return policies, and privacy terms at Quay.
+            Everything you need to know about shopping, delivery timelines, return policies, and privacy terms at Vastistore.
           </p>
         </div>
       </div>
@@ -138,7 +138,7 @@ export default function PoliciesContent() {
 
                       <div className="prose prose-sm dark:prose-invert max-w-none text-zinc-600 dark:text-zinc-350 text-xs leading-relaxed space-y-4 font-medium">
                         <p>
-                          Welcome to Quay! By accessing and purchasing from our store, you agree to comply with and be bound by the following terms and conditions. Please read them carefully.
+                          Welcome to Vastistore! By accessing and purchasing from our store, you agree to comply with and be bound by the following terms and conditions. Please read them carefully.
                         </p>
 
                         <div className="bg-slate-50 dark:bg-zinc-950/40 border border-zinc-100 dark:border-zinc-800 p-4.5 rounded-2xl space-y-2.5">
@@ -157,7 +157,7 @@ export default function PoliciesContent() {
                             2. Account Responsibilities
                           </h3>
                           <p className="pl-5 text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                            If you create an account on Quay, you are responsible for maintaining the confidentiality of your credentials and restricting unauthorized access. Accounts are for personal use only. We reserve the right to refuse service, terminate accounts, or cancel orders at our sole discretion.
+                            If you create an account on Vastistore, you are responsible for maintaining the confidentiality of your credentials and restricting unauthorized access. Accounts are for personal use only. We reserve the right to refuse service, terminate accounts, or cancel orders at our sole discretion.
                           </p>
                         </div>
 
@@ -194,7 +194,7 @@ export default function PoliciesContent() {
 
                       <div className="prose prose-sm dark:prose-invert max-w-none text-zinc-600 dark:text-zinc-350 text-xs leading-relaxed space-y-4 font-medium">
                         <p>
-                          We want you to love your Quay items! If a size doesn't fit or you receive a damaged product, our simplified return mechanism is designed to handle it quickly.
+                          We want you to love your Vastistore items! If a size doesn't fit or you receive a damaged product, our simplified return mechanism is designed to handle it quickly.
                         </p>
 
                         {/* Highlight Cards */}
@@ -243,7 +243,7 @@ export default function PoliciesContent() {
 
                       <div className="prose prose-sm dark:prose-invert max-w-none text-zinc-600 dark:text-zinc-350 text-xs leading-relaxed space-y-4 font-medium">
                         <p>
-                          Quay provides fast and secure shipping options across Ghana. Here is a breakdown of our delivery timelines, locations, and costs.
+                          Vastistore provides fast and secure shipping options across Ghana. Here is a breakdown of our delivery timelines, locations, and costs.
                         </p>
 
                         {/* Delivery Table */}
@@ -316,7 +316,7 @@ export default function PoliciesContent() {
 
                       <div className="prose prose-sm dark:prose-invert max-w-none text-zinc-600 dark:text-zinc-350 text-xs leading-relaxed space-y-4 font-medium">
                         <p>
-                          At Quay, we prioritize your data safety. This policy details how we collect, use, and guard your personal profile, addresses, and transaction info.
+                          At Vastistore, we prioritize your data safety. This policy details how we collect, use, and guard your personal profile, addresses, and transaction info.
                         </p>
 
                         <div className="space-y-4 mt-2">
@@ -335,7 +335,7 @@ export default function PoliciesContent() {
                             <div>
                               <h3 className="font-bold text-zinc-800 dark:text-zinc-200 text-xs">Secure Payments (Paystack Integration)</h3>
                               <p className="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed mt-0.5">
-                                We utilize Paystack for secure transaction checkouts. Quay **never stores nor processes** your MoMo pins, bank numbers, or card verification values (CVV). All banking details are handled directly over Paystack's PCI-DSS compliant secure infrastructure.
+                                We utilize Paystack for secure transaction checkouts. Vastistore **never stores nor processes** your MoMo pins, bank numbers, or card verification values (CVV). All banking details are handled directly over Paystack's PCI-DSS compliant secure infrastructure.
                               </p>
                             </div>
                           </div>
